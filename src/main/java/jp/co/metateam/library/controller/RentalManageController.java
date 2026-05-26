@@ -80,26 +80,6 @@ public class RentalManageController {
             BindingResult bindingResult,
             Model model) {
 
-        // 貸出予定日
-        if (bindingResult.hasFieldErrors("expectedRentalOn")
-                && rentalManageDto.getExpectedRentalOn() == null) {
-
-            bindingResult.rejectValue(
-                    "expectedRentalOn",
-                    "",
-                    "yyyy-MM-ddの形式で入力してください。");
-        }
-
-        // 返却予定日
-        if (bindingResult.hasFieldErrors("expectedReturnOn")
-                && rentalManageDto.getExpectedReturnOn() == null) {
-
-            bindingResult.rejectValue(
-                    "expectedReturnOn",
-                    "",
-                    "yyyy-MM-ddの形式で入力してください。");
-        }
-
         // 必須チェック
         boolean hasRentalDate = rentalManageDto.getExpectedRentalOn() != null;
         boolean hasReturnDate = rentalManageDto.getExpectedReturnOn() != null;
